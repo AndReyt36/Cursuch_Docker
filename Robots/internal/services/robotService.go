@@ -111,7 +111,7 @@ func (srv *RbtSrvic) DeleteRobot(id int) error {
 	return srv.RobotRepository.DeleteRobot(id)
 }
 
-// Отправка в реббит сообщения со струтурой робота
+// Отправка в реббит сообщения со структурой робота
 func (srv *RbtSrvic) publishToRabbitWithStruct(robot *entities.Robot, routingKey string) {
 	if err := srv.Rabbit.Publish(robot, routingKey); err != nil {
 		log.Println("Не получилось отправить, сорян")
